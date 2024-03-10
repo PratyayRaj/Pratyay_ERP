@@ -30,6 +30,8 @@ const Products = () => {
   ]);
 
   const [isAddDialogOpen, setAddDialogOpen] = useState(false);
+  const [isEditDialogOpen, setEditDialogOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [newProduct, setNewProduct] = useState({ name: "", price: "", quantity: "" });
 
   const handleAddProduct = () => {
@@ -38,23 +40,44 @@ const Products = () => {
     setNewProduct({ name: "", price: 0, quantity: 0 });
   };
 
+  const handleEditProduct = () => {
+    const updatedProducts = products.map((product) =>
+      product.id === selectedProduct.id ? { ...product, ...newProduct } : product
+    );
+    setProducts(updatedProducts);
+    setEditDialogOpen(false);
+    setSelectedProduct(null);
+    setNewProduct({ name: "", price: 0, quantity: 0 });
+  };
+
   const handleDeleteProduct = (id) => {
     const updatedProducts = products.filter((product) => product.id !== id);
     setProducts(updatedProducts);
+  };
+
+  const handleEditClick = (product) => {
+    setSelectedProduct(product);
+    setNewProduct(product);
+    setEditDialogOpen(true);
   };
 
   return (
     <Box m="20px">
       <Header title="Products" subtitle="List of Products" />
 
-      <Button style={{backgroundColor:"aqua", marginBottom:10+"px" }} onClick={() => setAddDialogOpen(true)}>Add Product</Button>
+      <Button
+        style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+        onClick={() => setAddDialogOpen(true)}
+      >
+        Add Product
+      </Button>
 
-      <TableContainer style={{background:"#143368"}} component={Paper}>
+      <TableContainer style={{ background: "#143368" }} component={Paper}>
         <Table>
-          <TableHead style={{background:"rgb(14, 29, 56)"}}>
+          <TableHead style={{ background: "rgb(14, 29, 56)" }}>
             <TableRow>
+              <TableCell align="center">S. No.</TableCell>
               <TableCell align="center">Name</TableCell>
-              <TableCell align="center">Categories</TableCell>
               <TableCell align="center">Price</TableCell>
               <TableCell align="center">Quantity</TableCell>
               <TableCell align="center">Actions</TableCell>
@@ -68,7 +91,18 @@ const Products = () => {
                 <TableCell align="center">${product.price.toFixed(2)}</TableCell>
                 <TableCell align="center">{product.quantity}</TableCell>
                 <TableCell align="center">
-                  <Button style={{backgroundColor:"aqua", marginBottom:10+"px" }} onClick={() => handleDeleteProduct(product.id)}>Delete</Button>
+                  <Button
+                    style={{ backgroundColor: "aqua", marginBottom: 10 + "px", marginRight:4+"px"}}
+                    onClick={() => handleEditClick(product)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+                    onClick={() => handleDeleteProduct(product.id)}
+                  >
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -77,9 +111,9 @@ const Products = () => {
       </TableContainer>
 
       {/* Add Product Dialog */}
-      <Dialog  open={isAddDialogOpen} onClose={() => setAddDialogOpen(false)}>
-        <DialogTitle >Add Product</DialogTitle>
-        <DialogContent>
+      <Dialog open={isAddDialogOpen} onClose={() => setAddDialogOpen(false)}>
+        <DialogTitle style={{ background: "rgb(14, 29, 56)" }}>Add Product</DialogTitle>
+        <DialogContent style={{ background: "#143368" }}>
           <TextField
             label="Name"
             value={newProduct.name}
@@ -91,7 +125,9 @@ const Products = () => {
             label="Price"
             type="number"
             value={newProduct.price}
-            onChange={(e) => setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })
+            }
             fullWidth
             margin="normal"
           />
@@ -99,17 +135,78 @@ const Products = () => {
             label="Quantity"
             type="number"
             value={newProduct.quantity}
-            onChange={(e) => setNewProduct({ ...newProduct, quantity: parseInt(e.target.value) })}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, quantity: parseInt(e.target.value) })
+            }
             fullWidth
             margin="normal"
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setAddDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleAddProduct}>Add</Button>
+        <DialogActions style={{ background: "rgb(14, 29, 56)" }}>
+          <Button
+            style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+            onClick={() => setAddDialogOpen(false)}
+          >
+            Cancel
+          </Button>
+          <Button
+            style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+            onClick={handleAddProduct}
+          >
+            Add
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Edit Product Dialog */}
+      <Dialog open={isEditDialogOpen} onClose={() => setEditDialogOpen(false)}>
+        <DialogTitle style={{ background: "rgb(14, 29, 56)" }}>Edit Product</DialogTitle>
+        <DialogContent style={{ background: "#143368" }}>
+          <TextField
+            label="Name"
+            value={newProduct.name}
+            onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Price"
+            type="number"
+            value={newProduct.price}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })
+            }
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Quantity"
+            type="number"
+            value={newProduct.quantity}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, quantity: parseInt(e.target.value) })
+            }
+            fullWidth
+            margin="normal"
+          />
+        </DialogContent>
+        <DialogActions style={{ background: "rgb(14, 29, 56)" }}>
+          <Button
+            style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+            onClick={() => setEditDialogOpen(false)}
+          >
+            Cancel
+          </Button>
+          <Button
+            style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
+            onClick={handleEditProduct}
+          >
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
     </Box>
   );
 };
+
 export default Products;
