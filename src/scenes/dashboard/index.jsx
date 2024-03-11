@@ -5,7 +5,7 @@ import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
@@ -47,17 +47,26 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* ROW 1 */}
+        {/* colors.primary[400] */}
         <Box
           gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={"#f7cffcd1"}
           display="flex"
           alignItems="center"
           justifyContent="center"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
+          transaction="transform 0.3s ease-in-out"
+          sx={{
+            transition:"box-shadow 0.3s ease-in-out",
+          '&:hover': {
+            bgcolor:"#f8d3fcd1",
+            boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)",
+          },
+          }}
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
+            title="9,876"
+            subtitle="Emails"
             progress="0.75"
             increase="+14%"
             icon={<EmailIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
@@ -65,15 +74,23 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={"#f7cffcd1"}
           display="flex"
           alignItems="center"
           justifyContent="center"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
+          transaction="transform 0.3s ease-in-out"
+          sx={{
+            transition:"box-shadow 0.3s ease-in-out",
+          '&:hover': {
+            bgcolor:"#f8d3fcd1",
+            boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)",
+          },
+          }}
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
+            title="342,564"
+            subtitle="Sales"
             progress="0.50"
             increase="+21%"
             icon={<PointOfSaleIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
@@ -81,11 +98,19 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={"#f7cffcd1"}
           display="flex"
           alignItems="center"
           justifyContent="center"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
+          transaction="transform 0.3s ease-in-out"
+          sx={{
+            transition:"box-shadow 0.3s ease-in-out",
+          '&:hover': {
+            bgcolor:"#f8d3fcd1",
+            boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)",
+          },
+          }}
         >
           <StatBox
             title="32,441"
@@ -97,18 +122,26 @@ const Dashboard = () => {
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={"#f7cffcd1"}
           display="flex"
           alignItems="center"
           justifyContent="center"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
+          transaction="transform 0.3s ease-in-out"
+          sx={{
+            transition:"box-shadow 0.3s ease-in-out",
+          '&:hover': {
+            bgcolor:"#f8d3fcd1",
+            boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)",
+          },
+          }}
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
+            title="$59,342.32"
+            subtitle="Earnings"
             progress="0.80"
             increase="+43%"
-            icon={<TrafficIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
+            icon={<AttachMoneyIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
 

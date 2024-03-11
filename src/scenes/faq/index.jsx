@@ -73,8 +73,8 @@ const Products = () => {
 
       <TableContainer style={{ background: "#143368" }} component={Paper}>
         <Table>
-          <TableHead style={{ background: "rgb(14, 29, 56)" }}>
-            <TableRow>
+          <TableHead style={{ background: "#a4a9fc" }}>
+            <TableRow >
               <TableCell align="center">S. No.</TableCell>
               <TableCell align="center">Name</TableCell>
               <TableCell align="center">Price</TableCell>
@@ -84,7 +84,7 @@ const Products = () => {
           </TableHead>
           <TableBody>
             {products.map((product, index) => (
-              <TableRow key={product.id}>
+              <TableRow key={product.id} style={{ background: "rgb(242 240 240)" }}>
                 <TableCell align="center">{index + 1}</TableCell>
                 <TableCell align="center">{product.name}</TableCell>
                 <TableCell align="center">${product.price.toFixed(2)}</TableCell>
@@ -111,8 +111,8 @@ const Products = () => {
 
       {/* Add Product Dialog */}
       <Dialog open={isAddDialogOpen} onClose={() => setAddDialogOpen(false)}>
-        <DialogTitle style={{ background: "rgb(14, 29, 56)" }}>Add Product</DialogTitle>
-        <DialogContent style={{ background: "#143368" }}>
+        <DialogTitle style={{ background: "#a4a9fc" }}>Add Product</DialogTitle>
+        <DialogContent style={{ background: "rgb(242 240 240)" }}>
           <TextField
             label="Name"
             value={newProduct.name}
@@ -141,7 +141,7 @@ const Products = () => {
             margin="normal"
           />
         </DialogContent>
-        <DialogActions style={{ background: "rgb(14, 29, 56)" }}>
+        <DialogActions style={{ background: "#a4a9fc" }}>
           <Button
             style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
             onClick={() => setAddDialogOpen(false)}
