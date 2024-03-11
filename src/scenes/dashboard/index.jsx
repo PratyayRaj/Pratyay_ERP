@@ -18,7 +18,7 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px">
+    <Box m="20px" height="calc(90vh - 40px)" overflow="auto" sx={{ '::-webkit-scrollbar': { display: 'none' } }}>
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
@@ -53,17 +53,14 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
         >
           <StatBox
             title="12,361"
             subtitle="Emails Sent"
             progress="0.75"
             increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            icon={<EmailIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
         <Box
@@ -72,17 +69,14 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
         >
           <StatBox
             title="431,225"
             subtitle="Sales Obtained"
             progress="0.50"
             increase="+21%"
-            icon={
-              <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            icon={<PointOfSaleIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
         <Box
@@ -91,17 +85,14 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
         >
           <StatBox
             title="32,441"
             subtitle="New Clients"
             progress="0.30"
             increase="+5%"
-            icon={
-              <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            icon={<PersonAddIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
         <Box
@@ -110,17 +101,14 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
         >
           <StatBox
             title="1,325,134"
             subtitle="Traffic Received"
             progress="0.80"
             increase="+43%"
-            icon={
-              <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
+            icon={<TrafficIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
 
@@ -128,6 +116,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 8"
           gridRow="span 2"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
           backgroundColor={colors.primary[400]}
         >
           <Box
@@ -138,26 +127,16 @@ const Dashboard = () => {
             alignItems="center"
           >
             <Box>
-              <Typography
-                variant="h5"
-                fontWeight="600"
-                color={colors.grey[100]}
-              >
+              <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
                 Revenue Generated
               </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
+              <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
                 $59,342.32
               </Typography>
             </Box>
             <Box>
               <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
+                <DownloadOutlinedIcon sx={{ fontSize: "26px", color: colors.greenAccent[500] }} />
               </IconButton>
             </Box>
           </Box>
@@ -170,6 +149,7 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
         >
           <Box
             display="flex"
@@ -193,23 +173,13 @@ const Dashboard = () => {
               p="15px"
             >
               <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
+                <Typography color={colors.greenAccent[500]} variant="h5" fontWeight="600">
                   {transaction.txId}
                 </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
+                <Typography color={colors.grey[100]}>{transaction.user}</Typography>
               </Box>
               <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
+              <Box backgroundColor={colors.greenAccent[500]} p="5px 10px" borderRadius="4px">
                 ${transaction.cost}
               </Box>
             </Box>
@@ -220,24 +190,16 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
           backgroundColor={colors.primary[400]}
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
             Campaign
           </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
+          <Box display="flex" flexDirection="column" alignItems="center" mt="25px">
             <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
+            <Typography variant="h5" color={colors.greenAccent[500]} sx={{ mt: "15px" }}>
               $48,352 revenue generated
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
@@ -246,13 +208,10 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
           backgroundColor={colors.primary[400]}
         >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
-          >
+          <Typography variant="h5" fontWeight="600" sx={{ padding: "30px 30px 0 30px" }}>
             Sales Quantity
           </Typography>
           <Box height="250px" mt="-20px">
@@ -262,14 +221,11 @@ const Dashboard = () => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
           backgroundColor={colors.primary[400]}
           padding="30px"
         >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
+          <Typography variant="h5" fontWeight="600" sx={{ marginBottom: "15px" }}>
             Geography Based Traffic
           </Typography>
           <Box height="200px">
@@ -282,3 +238,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

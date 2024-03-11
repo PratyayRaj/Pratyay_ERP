@@ -64,7 +64,6 @@ const Products = () => {
   return (
     <Box m="20px">
       <Header title="Products" subtitle="List of Products" />
-
       <Button
         style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
         onClick={() => setAddDialogOpen(true)}

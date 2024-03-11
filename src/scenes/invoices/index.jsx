@@ -66,7 +66,7 @@ const Orders = () => {
   ];
 
   return (
-    <Box marginLeft="20px" marginBottom="0px">
+    <Box marginLeft={"20px"} marginRight={"20px"} marginBottom={"10px"}>
       <Header title="ORDERS" subtitle="List of Orders" />
       <Box
         m="10px 0 0 0"
