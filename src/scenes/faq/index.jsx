@@ -24,9 +24,10 @@ const Products = () => {
   const colors = tokens(theme.palette.mode);
 
   const [products, setProducts] = useState([
-    { id: 1, name: "Potato", price: 25, quantity: 250 },
-    { id: 2, name: "Onion", price: 40, quantity: 230 },
-    { id: 3, name: "Tomato", price: 80, quantity: 225 },
+    { id: 1, name: "Potato", price: 2.99, quantity: 250 },
+    { id: 2, name: "Onion", price: 3.99, quantity: 230 },
+    { id: 3, name: "Tomato", price: 5.99, quantity: 225 },
+    { id: 4, name: "Burger", price: 1.99, quantity: 225 },
   ]);
 
   const [isAddDialogOpen, setAddDialogOpen] = useState(false);
