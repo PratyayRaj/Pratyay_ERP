@@ -50,9 +50,8 @@ const Orders = () => {
     selectableRows: "none",
     rowsPerPage: 5,
     elevation: 0,
-    padding:0,
+    padding: 0,
   };
-
   const handleUpdateOrderStatus = (updatedOrder) => {
     setData(data.map((order) => (order.id === updatedOrder.id ? updatedOrder : order)));
   };
@@ -67,7 +66,7 @@ const Orders = () => {
       <Header title="ORDERS" subtitle={"List of Orders"} />
       </div>
       <Box sx={{ display: "flex"  }}>
-        <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box component="main">
           <MUIDataTable title="" data={data} columns={columns} options={options} />
         </Box>
       </Box>
@@ -99,11 +98,11 @@ const EditDeleteOrder = ({ order, onUpdateStatus, onDelete }) => {
 
   return (
     <>
-      <Button variant="outlined" color="primary" onClick={handleOpen}>
+      <Button style={{ backgroundColor: "aqua"}} variant="outlined" color="primary" onClick={handleOpen}>
         Edit/Delete
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Edit or Delete Order</DialogTitle>
+        <DialogTitle >Edit or Delete Order</DialogTitle>
         <DialogContent>
           <Select value={status} onChange={(e) => setStatus(e.target.value)} fullWidth margin="normal">
             <MenuItem value="Pending">Pending</MenuItem>

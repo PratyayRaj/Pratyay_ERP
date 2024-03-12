@@ -4,7 +4,7 @@ import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
@@ -113,11 +113,11 @@ const Dashboard = () => {
           }}
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title="3,244"
+            subtitle="New Orders"
             progress="0.30"
             increase="+5%"
-            icon={<PersonAddIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
+            icon={<AddShoppingCartIcon sx={{ color: colors.greenAccent[600], fontSize: "26px" }} />}
           />
         </Box>
         <Box

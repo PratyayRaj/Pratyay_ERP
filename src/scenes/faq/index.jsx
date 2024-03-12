@@ -160,8 +160,8 @@ const Products = () => {
 
       {/* Edit Product Dialog */}
       <Dialog open={isEditDialogOpen} onClose={() => setEditDialogOpen(false)}>
-        <DialogTitle style={{ background: "rgb(14, 29, 56)" }}>Edit Product</DialogTitle>
-        <DialogContent style={{ background: "#143368" }}>
+        <DialogTitle style={{ background: "#a4a9fc" }}>Edit Product</DialogTitle>
+        <DialogContent style={{ background: "rgb(242 240 240)" }}>
           <TextField
             label="Name"
             value={newProduct.name}
@@ -190,7 +190,7 @@ const Products = () => {
             margin="normal"
           />
         </DialogContent>
-        <DialogActions style={{ background: "rgb(14, 29, 56)" }}>
+        <DialogActions style={{ background: "#a4a9fc" }}>
           <Button
             style={{ backgroundColor: "aqua", marginBottom: 10 + "px" }}
             onClick={() => setEditDialogOpen(false)}
