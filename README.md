@@ -8,28 +8,29 @@ Ensure you have Node.js installed on your machine. You can download it from here
 You should have a basic understanding of React and React Router.
 
 **3. Installation**
+
 **Clone the repository to your local machine using the following command:**
 -git clone <repository_url>
 
-Navigate to the project directory:
+**Navigate to the project directory:**
 -cd erp-system-react
 
-Install dependencies using npm or yarn:
+**Install dependencies using npm or yarn:**
 npm install
 or
 yarn install
 
-4. Running the Application
+**4. Running the Application**
 
-Start the development server by running the following command:
+**Start the development server by running the following command:**
 npm start
 or
 yarn start
 The application will open in your default web browser. If not, navigate to http://localhost:5000 in your browser.
 
-5. Using the Application
+**5. Using the Application**
 
-Dashboard Page
+**Dashboard Page**
 Upon opening the application, you will be directed to the Dashboard page.
 The Dashboard displays key metrics or features, such as total number of products and orders.
 Links or buttons are provided for quick navigation to the Products and Orders management pages.
