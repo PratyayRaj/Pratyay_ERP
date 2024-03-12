@@ -1,232 +1,131 @@
-// import React from "react";
-// import { Box, useTheme } from "@mui/material";
-// import { DataGrid } from "@mui/x-data-grid";
-// import { mockDataOrders } from "../../data/mockData";
-// import { tokens } from "../../theme";
-// import Header from "../../components/Header";
-
-// const Orders = () => {
-//   const theme = useTheme();
-//   const colors = tokens(theme.palette.mode);
-//   const columns = [
-//     { field: "id", headerName: "ID" },
-//     {
-//       field: "buyerName",
-//       headerName: "Buyer Name",
-//       flex: 1,
-//       cellClassName: "name-column--cell",
-//     },
-//     {
-//       field: "address",
-//       headerName: "Address",
-//       flex: 1,
-//     },
-//     {
-//       field: "contact",
-//       headerName: "Contact",
-//       flex: 1,
-//     },
-//     {
-//       field: "email",
-//       headerName: "Email",
-//       flex: 1,
-//     },
-//     {
-//       field: "type",
-//       headerName: "Type",
-//       flex: 1,
-//     },
-//     {
-//       field: "quantity",
-//       headerName: "Quantity",
-//       flex: 1,
-//     },
-//     {
-//       field: "date",
-//       headerName: "Date",
-//       flex: 1,
-//     },
-//     {
-//       field: "status",
-//       headerName: "Status",
-//       flex: 1,
-//     },
-//   ];
-
-//   return (
-//     <Box marginLeft={"20px"} marginRight={"20px"} marginBottom={"10px"}>
-//       <Header title="ORDERS" subtitle="List of Orders" />
-//       <Box
-//         m="10px 0 0 0"
-//         height="75vh"
-//         sx={{
-//           "& .MuiDataGrid-root": {
-//             border: "none",
-//           },
-//           "& .MuiDataGrid-cell": {
-//             borderBottom: "none",
-//           },
-//           "& .name-column--cell": {
-//             color: colors.greenAccent[300],
-//           },
-//           "& .MuiDataGrid-columnHeaders": {
-//             backgroundColor: colors.blueAccent[700],
-//             borderBottom: "none",
-//           },
-//           "& .MuiDataGrid-virtualScroller": {
-//             backgroundColor: colors.primary[400],
-//           },
-//           "& .MuiDataGrid-footerContainer": {
-//             borderTop: "none",
-//             backgroundColor: colors.blueAccent[700],
-//           },
-//           "& .MuiCheckbox-root": {
-//             color: `${colors.greenAccent[200]} !important`,
-//           },
-//         }}
-//       >
-//         <DataGrid checkboxSelection rows={mockDataOrders} columns={columns} />
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default Orders;
-
-import React from "react";
-import { Box, useTheme, Button } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import React, { useState } from "react";
+import MUIDataTable from "mui-datatables";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import { mockDataOrders } from "../../data/mockData";
-import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
 const Orders = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+  const [data, setData] = useState(mockDataOrders);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 40 },
+    { name: "id", label: "ID" },
+    { name: "buyerName", label: "Buyer Name", flex: 1, options: { cellClassName: "name-column--cell" } },
+    { name: "address", label: "Address", flex: 1 },
+    { name: "contact", label: "Contact", flex: 1 },
+    { name: "email", label: "Email", flex: 1 },
+    { name: "type", label: "Type", flex: 1 },
+    { name: "quantity", label: "Quantity", flex: 1 },
+    { name: "date", label: "Date", flex: 1 },
+    { name: "status", label: "Status", flex: 1 },
     {
-      field: "buyerName",
-      headerName: "Buyer Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "contact",
-      headerName: "Contact",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "type",
-      headerName: "Type",
-      flex: 1,
-    },
-    {
-      field: "quantity",
-      headerName: "Quantity",
-      flex: 1,
-    },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      flex: 1,
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      flex: 1,
-      renderCell: (params) => (
-        <div>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => handleEditOrder(params.row.id)}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={() => handleDeleteOrder(params.row.id)}
-          >
-            Delete
-          </Button>
-        </div>
-      ),
+      name: "actions",
+      label: "Actions",
+      options: {
+        customBodyRender: (value, tableMeta, updateValue) => {
+          const order = data[tableMeta.rowIndex];
+          return (
+            <EditDeleteOrder
+              order={order}
+              onUpdateStatus={handleUpdateOrderStatus}
+              onDelete={handleDeleteOrder}
+            />
+          );
+        },
+      },
     },
   ];
 
-  const handleEditOrder = (orderId) => {
-    // Placeholder logic for editing order details
-    const updatedOrders = mockDataOrders.map((order) =>
-      order.id === orderId ? { ...order, status: "Updated Status" } : order
-    );
-    // Assuming you have a state to update the orders
-    // setOrders(updatedOrders);
-    console.log(`Edit order with ID ${orderId}`);
+  const options = {
+    filter: true,
+    sort: true,
+    selectableRows: "none",
+    rowsPerPage: 5,
+    elevation: 0,
+    padding:0,
   };
 
-  const handleDeleteOrder = (orderId) => {
-    // Placeholder logic for deleting order
-    const updatedOrders = mockDataOrders.filter((order) => order.id !== orderId);
-    // Assuming you have a state to update the orders
-    // setOrders(updatedOrders);
-    console.log(`Delete order with ID ${orderId}`);
+  const handleUpdateOrderStatus = (updatedOrder) => {
+    setData(data.map((order) => (order.id === updatedOrder.id ? updatedOrder : order)));
+  };
+
+  const handleDeleteOrder = (id) => {
+    setData(data.filter((order) => order.id !== id));
   };
 
   return (
-    <Box marginLeft={"20px"} marginRight={"20px"} marginBottom={"10px"}>
-      <Header title="ORDERS" subtitle="List of Orders" />
-      <Box
-        m="10px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .name-column--cell": {
-            color: colors.greenAccent[300],
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
-          },
-          "& .MuiCheckbox-root": {
-            display: "none", // Hide the checkbox column
-          },
-        }}
-      >
-        <DataGrid rows={mockDataOrders} columns={columns} />
+    <Box   marginLeft={"20px"} marginRight={"20px"} marginBottom={"20px"}>
+      <div style={{marginBottom:-32 }} className="pr">
+      <Header title="ORDERS" subtitle={"List of Orders"} />
+      </div>
+      <Box sx={{ display: "flex"  }}>
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <MUIDataTable title="" data={data} columns={columns} options={options} />
+        </Box>
       </Box>
     </Box>
   );
 };
 
+const EditDeleteOrder = ({ order, onUpdateStatus, onDelete }) => {
+  const [open, setOpen] = useState(false);
+  const [status, setStatus] = useState(order.status);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleUpdateStatus = () => {
+    onUpdateStatus({ ...order, status });
+    handleClose();
+  };
+
+  const handleDelete = () => {
+    onDelete(order.id);
+    handleClose();
+  };
+
+  return (
+    <>
+      <Button variant="outlined" color="primary" onClick={handleOpen}>
+        Edit/Delete
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Edit or Delete Order</DialogTitle>
+        <DialogContent>
+          <Select value={status} onChange={(e) => setStatus(e.target.value)} fullWidth margin="normal">
+            <MenuItem value="Pending">Pending</MenuItem>
+            <MenuItem value="Shipped">Shipped</MenuItem>
+            <MenuItem value="Processing">Processing</MenuItem>
+            <MenuItem value="Delivered">Delivered</MenuItem>
+          </Select>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleUpdateStatus} color="primary">
+            Update Status
+          </Button>
+          <Button onClick={handleDelete} color="secondary">
+            Delete
+          </Button>
+          <Button onClick={handleClose}>Cancel</Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+};
+
 export default Orders;
+
 
