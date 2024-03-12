@@ -1,14 +1,14 @@
-1. Introduction
+**1. Introduction**
 
-The documentation provides a guide for setting up and using the front-end application for a simplified ERP system built using React. The project aims to create a user-friendly interface for managing key aspects of a business, including products and orders management.
+-The documentation provides a guide for setting up and using the front-end application for a simplified ERP system built using React. The project aims to create a user-friendly interface for managing key aspects of a business, including products and orders management.
 
-2. Prerequisites
+**2. Prerequisites**
 
 Ensure you have Node.js installed on your machine. You can download it from here.
 You should have a basic understanding of React and React Router.
 
-3. Installation
-Clone the repository to your local machine using the following command:
+**3. Installation**
+**Clone the repository to your local machine using the following command:**
 -git clone <repository_url>
 
 Navigate to the project directory:
