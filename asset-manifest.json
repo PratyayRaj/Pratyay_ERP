@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Pratyay_ERP/static/css/main.7e6115fe.css",
+    "main.js": "/Pratyay_ERP/static/js/main.0ef03f63.js",
+    "index.html": "/Pratyay_ERP/index.html",
+    "main.7e6115fe.css.map": "/Pratyay_ERP/static/css/main.7e6115fe.css.map",
+    "main.0ef03f63.js.map": "/Pratyay_ERP/static/js/main.0ef03f63.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e6115fe.css",
+    "static/js/main.0ef03f63.js"
+  ]
+}
