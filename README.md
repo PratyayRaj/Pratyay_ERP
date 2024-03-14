@@ -73,6 +73,9 @@ The application will open in your default web browser. If not, navigate to http:
 ## Contributing
 - Contributions are welcome! Feel free to submit pull requests or open issues for any improvements or suggestions.
 
+## License:
+- This project is licensed under the MIT License
+
 
 
 
