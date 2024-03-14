@@ -72,7 +72,7 @@ The application will open in your default web browser. If not, navigate to http:
 
 ## ERP System Live Demonstration Video
 - In this video, you will see a detailed walkthrough of the system, including the dashboard overview, products management, orders management, and any optional features that have been implemented. The video aims to provide you with a clear understanding of how our ERP system operates and the benefits it brings to your business operations.
-- https://drive.google.com/file/d/1o4i-K8as9pWZr-S4H0DFcGJjqCQ70nfm/view?usp=sharing
+- https://drive.google.com/file/d/1HTSDkvU8Vqeihq32ZYIj0M6xTzMRGfIY/view?usp=sharing
 
 ## Contributing
 - Contributions are welcome! Feel free to submit pull requests or open issues for any improvements or suggestions.
