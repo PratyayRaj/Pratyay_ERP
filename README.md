@@ -1,3 +1,5 @@
+# ERP(Enterprise Resource Planning) System with React
+
 **1. Introduction**
 
 -The documentation provides a guide for setting up and using the front-end application for a simplified ERP system built using React. The project aims to create a user-friendly interface for managing key aspects of a business, including products and orders management.
