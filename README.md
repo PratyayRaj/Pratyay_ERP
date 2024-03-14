@@ -70,6 +70,9 @@ The application will open in your default web browser. If not, navigate to http:
   
 ![App Screenshot](https://github.com/PratyayRaj/Pratyay_ERP/blob/main/Screenshots/Screenshot%202024-03-14%20144646.png)
 
+## ERP System Live link
+- https://pratyayraj.github.io/Pratyay_ERP/
+
 ## ERP System Live Demonstration Video
 - In this video, you will see a detailed walkthrough of the system, including the dashboard overview, products management, orders management, and any optional features that have been implemented. The video aims to provide you with a clear understanding of how our ERP system operates and the benefits it brings to your business operations.
 - https://drive.google.com/file/d/1HTSDkvU8Vqeihq32ZYIj0M6xTzMRGfIY/view?usp=sharing
