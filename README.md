@@ -32,9 +32,8 @@ The application will open in your default web browser. If not, navigate to http:
 ### Dashboard Page
 
 - Upon opening the application, you will be directed to the Dashboard page.
-![App Screenshot](https://github.com/PratyayRaj/Pratyay_ERP/blob/main/Screenshots/Screenshot%20(329).png)
+
 - The Dashboard displays key metrics or features, such as total number of products and orders.
-![App Screenshot](https://github.com/PratyayRaj/Pratyay_ERP/blob/main/Screenshots/Screenshot%20(331).png)
 
 - Links or buttons are provided for quick navigation to the Products and Orders management pages.
 ![App Screenshot](https://github.com/PratyayRaj/Pratyay_ERP/blob/main/Screenshots/Screenshot%20(332).png)
