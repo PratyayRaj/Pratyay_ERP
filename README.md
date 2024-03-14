@@ -70,6 +70,9 @@ The application will open in your default web browser. If not, navigate to http:
   
 ![App Screenshot](https://github.com/PratyayRaj/Pratyay_ERP/blob/main/Screenshots/Screenshot%202024-03-14%20144646.png)
 
+## Contributing
+- Contributions are welcome! Feel free to submit pull requests or open issues for any improvements or suggestions.
+
 
 
 
